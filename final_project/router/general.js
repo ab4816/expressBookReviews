@@ -26,6 +26,7 @@ public_users.get("/", (req, res) => {
   let mypromise = new Promise((resolve) => {
     resolve(JSON.stringify({ books }, null, 4));
   });
+
   mypromise.then((successMsg) => {
     res.type("json");
     return res.status(200).send(successMsg);
@@ -43,6 +44,7 @@ public_users.get("/isbn/:isbn", function (req, res) {
       reject("Invalid ISBN");
     }
   });
+
   mypromise
     .then((msg) => {
       res.type("json");
@@ -64,6 +66,7 @@ public_users.get("/author/:author", function (req, res) {
     }
     resolve(JSON.stringify({ filtered_books }, null, 4));
   });
+
   mypromise.then((msg) => {
     res.type("json");
     return res.status(200).send(msg);
@@ -80,6 +83,7 @@ public_users.get("/title/:title", function (req, res) {
     }
     resolve(JSON.stringify({ filtered_books }, null, 4));
   });
+
   mypromise.then((msg) => {
     res.type("json");
     return res.status(200).send(msg);
